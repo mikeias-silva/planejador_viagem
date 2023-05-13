@@ -8,7 +8,6 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use function GuzzleHttp\Promise\all;
 
 class RotasController extends Controller
 {
