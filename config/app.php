@@ -185,4 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'api_google_key'=> env('API_GOOGLE_KEY')
 ];
