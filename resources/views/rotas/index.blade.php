@@ -14,6 +14,12 @@
             <th>Destino</th>
             <th>Opções</th>
         </tr>
+        @if(empty($rotas))
+            <tr>
+                <td colspan="5">Nenhum viagem cadastrado</td>
+            </tr>
+        @else
+        @endif
         @foreach($rotas as $rota)
             <tr>
                 <td><a href="{{route('rotas.show', [$rota->id])}}">  {{$rota->nome_trajeto}}</a></td>
