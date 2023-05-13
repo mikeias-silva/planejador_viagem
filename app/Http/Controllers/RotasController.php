@@ -16,9 +16,6 @@ class RotasController extends Controller
     public function index()
     {
         $rotas = Rotas::all();
-
-//        dd($rotas[0]->getAttributes());
-//        dd($rotas);
         foreach ($rotas as $rota) {
             $rota->data_viagem = Carbon::createFromFormat('Y-m-d', $rota->data_viagem)->format('d/m/Y');
 
@@ -28,28 +25,6 @@ class RotasController extends Controller
 
     public function create()
     {
-
-
-        $client = new Client();
-
-        $waypoints = [
-            [13.4050, 52.5200], // Waypoint 1 (longitude, latitude)
-            [0.1278, 51.5074], // Waypoint 2 (longitude, latitude)
-        ];
-
-//        $response = $client->request('GET', 'https://api.openrouteservice.org/v2/directions/driving-car', [
-//            'headers' => [
-//                'Authorization' => '5b3ce3597851110001cf624818224d713cf64e1c89d92fda782b18ec',
-//            ],
-//            'query' => [
-//                'start' => [12.9716, 77.5946], // Origem (longitude, latitude)
-//                'end' => [12.9716, 77.5946], // Destino (longitude, latitude)
-//
-//            ],
-//        ]);
-//
-//        $data = json_decode($response->getBody(), true);
-//        dd($data);
         return view('rotas.create');
     }
 
@@ -169,7 +144,7 @@ class RotasController extends Controller
                     'origin' => "{$partida_latitude},{$partida_longitude}",
                     'destination' => "{$destino_latitude},{$destino_longitude}",
                     'waypoints' => $waypointsFormatado,
-                    'key' => 'AIzaSyCX1b5sqz0XNQn7gQawN53X_Lioto9dVIs',
+                    'key' => config('app.api_google_key'),
                     'language' => 'pt-BR'
                 ]
             ]);
