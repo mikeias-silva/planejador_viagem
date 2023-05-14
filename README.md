@@ -40,6 +40,15 @@ Este projeto é uma aplicação em Laravel que utiliza a API do Google Direction
         php artisan key:migrate
     ```
 
+7. Instalar dependências de front-end
+    ```console
+        npm install
+    ```
+8. Agora, precisa compilar as dependencias de front-end com vite com o comando
+    ```console
+        npm run build
+    ```
+
 7. Inicie o servidor local:
     ```console
         php artisan serve
