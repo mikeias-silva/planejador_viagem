@@ -33,7 +33,6 @@ class RotasController extends Controller
             $newRota = Rotas::create($request->all());
             return view('rotas.paradas', ['rota' => $newRota]);
         } catch (\Exception $exception) {
-            dd($exception);
             return view('rotas.create')->with('Error', $exception->getMessage());
         }
     }
@@ -49,7 +48,7 @@ class RotasController extends Controller
         return view('rotas.edit', compact('rota'));
     }
 
-    public function update(Request $request, Rotas $rota)
+    public function update(RotasStoreRequest $request, Rotas $rota)
     {
         try {
             $rota->nome_trajeto = $request->nome_trajeto;
@@ -65,7 +64,7 @@ class RotasController extends Controller
             $rota->save();
             return view('rotas.paradas', compact('rota'));
         } catch (Exception $exception) {
-            return redirect()->route('rotas.index', [$rota->id]);
+            return redirect()->route('rotas.index')->withErrors($exception->getMessage());
         }
     }
 
@@ -74,7 +73,6 @@ class RotasController extends Controller
         try {
             $rota->delete();
             return redirect()->route('rotas.index');
-            dd('oi');
         } catch (Exception $exception) {
             return redirect()->route('rotas.index')->withErrors($exception->getMessage());
         }
@@ -148,7 +146,7 @@ class RotasController extends Controller
                 ]
             ]);
         } catch (Exception $exception) {
-            dd($exception);
+            return redirect()->route('rotas.index')->withErrors($exception->getMessage());
         }
 
         $data = json_decode($response->getBody()->getContents());
