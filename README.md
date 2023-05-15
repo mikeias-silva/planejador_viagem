@@ -8,26 +8,26 @@ Este projeto é uma aplicação em Laravel que utiliza a API do Google Direction
 
 ### Instalação
 1. Clone o repositório do projeto:
- ```console 
-    git clone https://github.com/mikeias-silva/planejador_viagem.git 
- ``` 
+     ```console 
+        git clone https://github.com/mikeias-silva/planejador_viagem.git 
+    ``` 
 2. Instale as dependências do Laravel usando o Composer:
-```
+    ```console
     cd planejador_viagem
-    composer install 
- ```
+        composer install 
+     ```
 
 3. Consigure o arquivo '.env' com as infomrações do banco de dados e outras configurações relevantes como a chave da api google directions:
- ```console
-    cp .env.example .env
-```
+     ```console
+        cp .env.example .env
+    ```
 
 4. Insira no arquivo .env as informações da sua chave da api na tag:
-```console
+    ```console
     // restante do arquivo .env
     
-    API_GOOGLE_KEY=(insira sua chave da api aqui)
-```
+        API_GOOGLE_KEY=(insira sua chave da api aqui)
+    ```
 
 5. Execute as migrations do banco de dados:
     ```console
